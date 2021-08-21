@@ -1,0 +1,15 @@
+#!/bin/bash
+ADDR=...
+
+SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# get the working dir to send
+WORK_NAME=${PWD#"/Users/nmhkahn/Works/"}
+IFS="/" read -ra WORK_NAME <<< "$WORK_NAME"
+WORK_DIR="/Users/nmhkahn/Works/"$WORK_NAME
+
+echo Sync to server $ADDR
+rsync -avrhc \
+    --exclude-from $WORK_DIR"/.gitignore" \
+    --exclude "*.git" \
+    $WORK_DIR \
+    ${ADDR}:/home/nmhkahn/Works/
