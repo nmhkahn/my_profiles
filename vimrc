@@ -40,6 +40,7 @@ Plugin 'https://github.com/nvie/vim-flake8'
 Plugin 'https://github.com/vim-syntastic/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'shime/vim-livedown'
+Plugin 'psf/black'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,6 +67,10 @@ let g:syntastic_quiet_messages = {"regex": [
     \ 'too-many-instance-attributes',
     \ 'too-few-public-methods',
     \ 'missing-docstring',
+    \ 'missing-module-docstring',
+    \ 'missing-class-docstring',
+    \ 'missing-function-docstring',
+    \ 'consider-using-from-import',
     \ 'bad-continuation',
     \ 'too-many-statements',
     \ 'too-many-arguments',
